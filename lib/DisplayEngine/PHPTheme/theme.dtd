@@ -6,7 +6,7 @@
 <!ELEMENT dependencies (#PCDATA)>
 
 <!ELEMENT hooks 
-  (hook)>
+  (hook*)>
 <!ELEMENT hook EMPTY>
 <!ATTLIST hook 
   name CDATA ""

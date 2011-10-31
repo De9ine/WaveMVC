@@ -10,4 +10,4 @@ try {
 	print_r($e);
 }
 
-print Kernel::$Weblication->renderResponse();
+print Kernel::$Weblication->run();

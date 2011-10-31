@@ -51,7 +51,7 @@ class Weblication {
 		$this->response->setEndpointResponse($EndpointHandler);
 	}
 	
-	public function renderResponse() {
+	public function run() {
 		return $this->response->renderResponse();
 	}
 	

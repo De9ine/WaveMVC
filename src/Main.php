@@ -18,8 +18,7 @@ class Main extends Weblication {
 		$this->displayEngine = new PHPTheme();
 	}
 	
-	public function renderResponse () {
-		$renderedResponse = parent::renderResponse();
+	public function run () {
 		
 		$this->displayEngine->pewp = "oooiih";
 		$this->displayEngine->header = "apa";

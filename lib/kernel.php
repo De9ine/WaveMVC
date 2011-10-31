@@ -24,8 +24,9 @@ class Kernel {
 	const BOOTSTRAP_PHASE_FULL = 0;
 	const BOOTSTRAP_PHASE_MANIFEST = 1;
 	const BOOTSTRAP_PHASE_INDEX_ENDPOINT = 2;
-	const BOOTSTRAP_PHASE_INIT_HANDLER = 3;
-	const BOOTSTRAP_PHASE_CLEAN_ENDPOINT_INDEX = 4;
+	const BOOTSTRAP_INDEX_PLUGINS	= 3;
+	const BOOTSTRAP_PHASE_INIT_HANDLER = 4;
+	const BOOTSTRAP_PHASE_CLEAN_ENDPOINT_INDEX = 5;
 	
 	
 	
@@ -53,7 +54,7 @@ class Kernel {
 				include('lib/IO/DB/DB.php');
 			case Kernel::BOOTSTRAP_PHASE_MANIFEST :
 				try {
-					self::$manifest = Kernel::process_manifest();
+					self::$manifest = Kernel::processSiteManifest();
 				} catch (Exception $e){
 					print_r($e->getTraceAsString());
 				}
@@ -78,6 +79,23 @@ class Kernel {
 		
 	}
 	
+	public static function processThemeManifest($manifestPath) {
+		$themeManifest 	= array();
+	
+		$manifest 			= new DOMDocument();
+		$manifest->loadXML(file_get_contents($manifestPath));
+		$manifestRoot		= $manifest->getElementsByTagName('theme')->item(0);
+		
+		$themeManifest['name']				= $manifestRoot->getElementsByTagName('name')->item(0)->nodeValue;
+		$themeManifest['class']				= $manifestRoot->getElementsByTagName('class')->item(0)->nodeValue;
+		$themeManifest['description']	= $manifestRoot->getElementsByTagName('description')->item(0)->nodeValue;
+		$themeHooks										= $manifestRoot->getElementsByTagName('hooks')->item(0);
+		
+		
+		
+	}
+	
+	
 	/**
 	 * 
 	 * This function parses the /manifest.xml to determain some initial information about the current
@@ -88,7 +106,7 @@ class Kernel {
 	 * @throws Exception
 	 */
 	
-	public static function process_manifest() {
+	public static function processSiteManifest() {
 		
 		$siteManifest 		= array();
 		$manifest 				= new DOMDocument;

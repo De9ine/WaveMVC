@@ -32,6 +32,7 @@ class PHPTheme extends DisplayEngine {
 	private function initTheme() {
 		
 		// first we need to lookup the theme.
+		kernel::processThemeManifest('themes/'.$this->theme.'/manifest.xml');
 		
 	}
 	
