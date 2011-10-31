@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE theme SYSTEM "../../lib/DisplayEngine/PHPTheme/theme.dtd">
+<theme>
+  <class></class>
+  <name></name>
+  <version></version>
+  <dependencies></dependencies>
+  <hooks></hooks>
+</theme>

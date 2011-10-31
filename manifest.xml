@@ -1,0 +1,21 @@
+<!DOCTYPE site SYSTEM "site.dtd">
+<site>
+  <classpath>src/Main.php</classpath>
+  <name>a</name>
+  <scripts><script>a</script></scripts>
+  <baseurl>http://localhost/workspace2/mvc/</baseurl>
+  <theme>generic</theme>
+  <db>
+    <user>root</user>
+    <passwd>toor</passwd>
+    <host>127.0.0.1</host>
+    <handler>default</handler>
+    <database>mvc</database>
+  </db>
+  <endpoints>
+    <endpoint path="/" callback="Front">
+    </endpoint>
+    <endpoint path="apa" callback="Front">
+    </endpoint>
+  </endpoints>
+</site>

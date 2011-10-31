@@ -1,0 +1,14 @@
+<!DOCTYPE plugin SYSTEM "../../plugin.dtd">
+<plugin>
+  <name>Node</name>
+  <class>Node</class>
+  <version>1.x</version>
+  <dependencies></dependencies>
+  <hooks>
+    <hook name="preprocess_theme_vars" callback="preprocess_theme_vars" />
+  </hooks>
+  <endpoints>
+    <endpoint path="node" callback="node">
+    </endpoint>
+  </endpoints>
+</plugin>

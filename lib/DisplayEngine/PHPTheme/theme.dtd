@@ -1,0 +1,14 @@
+<!ELEMENT theme
+  (name,class,version,dependencies,hooks)>
+<!ELEMENT class (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT version (#PCDATA)>
+<!ELEMENT dependencies (#PCDATA)>
+
+<!ELEMENT hooks 
+  (hook)>
+<!ELEMENT hook EMPTY>
+<!ATTLIST hook 
+  name CDATA ""
+  callback CDATA ""
+  >

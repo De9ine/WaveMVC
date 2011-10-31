@@ -1,0 +1,23 @@
+<!ELEMENT site
+  (classpath, name,scripts*, baseurl, theme, db, endpoints)>
+<!ELEMENT classpath (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT scripts (script)>
+<!ELEMENT baseurl (#PCDATA)>
+<!ELEMENT theme (#PCDATA)>
+<!ELEMENT script (#PCDATA)>
+<!ELEMENT db (user, passwd, host, handler, database)>
+<!ELEMENT user (#PCDATA)>
+<!ELEMENT passwd (#PCDATA)>
+<!ELEMENT host (#PCDATA)>
+<!ELEMENT handler (#PCDATA)>
+<!ELEMENT database (#PCDATA)>
+
+<!ELEMENT endpoints (endpoint*)>
+<!ELEMENT endpoint (argument*)>
+<!ATTLIST endpoint
+  path CDATA ""
+  callback CDATA ""
+  >
+  
+<!ELEMENT argument (#PCDATA)>
