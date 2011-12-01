@@ -1,8 +1,18 @@
 <!ELEMENT theme
-  (name,class,version,dependencies,hooks)>
+  (name,class,version,dependencies,regions, scripts, stylesheets, hooks)>
 <!ELEMENT class (#PCDATA)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT version (#PCDATA)>
+<!ELEMENT regions (region)>
+<!ELEMENT region (#PCDATA)>
+<!ATTLIST region 
+  processorder CDATA "0"
+>
+<!ELEMENT scripts* (script)>
+<!ELEMENT script (#PCDATA)>
+<!ELEMENT stylesheets* (stylesheet)>
+<!ELEMENT stylesheet (#PCDATA)>
+
 <!ELEMENT dependencies (#PCDATA)>
 
 <!ELEMENT hooks 

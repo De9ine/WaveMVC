@@ -1,9 +1,14 @@
 <!DOCTYPE site SYSTEM "site.dtd">
 <site>
   <classpath>src/Main.php</classpath>
+  <pluginpath>src/plugins/</pluginpath>
   <name>a</name>
   <scripts><script>a</script></scripts>
   <baseurl>http://localhost/workspace2/mvc/</baseurl>
+  <display>
+    <handler format="text/html">PHPTheme</handler>
+    <handler format="application/json">JSONEngine</handler>
+  </display>
   <theme>generic</theme>
   <db>
     <user>root</user>
@@ -16,6 +21,8 @@
     <endpoint path="/" callback="Front">
     </endpoint>
     <endpoint path="apa" callback="Front">
+    </endpoint>
+    <endpoint path="node/%" callback="Front">
     </endpoint>
   </endpoints>
 </site>

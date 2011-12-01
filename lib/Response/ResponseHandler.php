@@ -8,7 +8,7 @@ class ResponseHandler {
 			
 	}
 	
-	public function renderResponse() {
+	public function processResponse() {
 		$data = $this->endpoint->getData();
 		$preferedContentType = Kernel::getRequest()->getPreferedAccept();
 		return $this->endpoint->processResponse($preferedContentType['accept']);

@@ -1,9 +1,11 @@
 <!ELEMENT site
-  (classpath, name,scripts*, baseurl, theme, db, endpoints)>
+  (classpath, pluginpath, name,scripts*, baseurl, display, theme, db, endpoints)>
 <!ELEMENT classpath (#PCDATA)>
+<!ELEMENT pluginpath (#PCDATA)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT scripts (script)>
 <!ELEMENT baseurl (#PCDATA)>
+<!ELEMENT display (handler*)>
 <!ELEMENT theme (#PCDATA)>
 <!ELEMENT script (#PCDATA)>
 <!ELEMENT db (user, passwd, host, handler, database)>
@@ -11,6 +13,9 @@
 <!ELEMENT passwd (#PCDATA)>
 <!ELEMENT host (#PCDATA)>
 <!ELEMENT handler (#PCDATA)>
+<!ATTLIST handler
+  format CDATA ""
+  >
 <!ELEMENT database (#PCDATA)>
 
 <!ELEMENT endpoints (endpoint*)>

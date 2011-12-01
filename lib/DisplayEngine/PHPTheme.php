@@ -30,15 +30,23 @@ class PHPTheme extends DisplayEngine {
 	 * 
 	 */
 	private function initTheme() {
-		
 		// first we need to lookup the theme.
 		kernel::processThemeManifest('themes/'.$this->theme.'/manifest.xml');
-		
 	}
 	
-	
-	public function display ($template) {
-		return eval("?>".file_get_contents($template)."<?");
+	/**
+	 * (non-PHPdoc)
+	 * @see DisplayEngine::display()
+	 */
+	public function display ($template = "") {
+		
+		$tFile = 'themes/'.$this->theme.'/templates/'.$template;
+		if(is_file($tFile)){
+			return eval("?>".file_get_contents($tFile)."<?");
+		} else {
+			eval ("?>".$template."<?");
+		}
+		
 	}
 	
 	public function get ($variable) {

@@ -5,5 +5,8 @@
   <class>Generic</class>
   <version>0.1-Alpha</version>
   <dependencies></dependencies>
+  <regions></regions>
+  <scripts></scripts>
+  <stylesheets></stylesheets>
   <hooks></hooks>
 </theme>

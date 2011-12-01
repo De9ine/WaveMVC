@@ -1,13 +1,13 @@
 <?php 
 
-class Front extends Endpoint {
+class Front extends BasicEndpoint {
 	
 	public function __construct() {
 		parent::__construct();
 	}
 	
 	public function initEndpoint () {
-		$this->contentTypes = array('text/html', 'application/json');
+		$this->responseTypes = array('text/html', 'application/json');
 	}
 	
 	public function getData() {
@@ -15,11 +15,11 @@ class Front extends Endpoint {
 		$accept = $request->getPreferedAccept();
 	}
 	
-	public function processResponse ($returnType) {
-		switch ($returnType) {
+	public function processResponse ($responseType) {
+		switch ($responseType) {
 			case 'text/html' :
 				
-				$this->handleHTMLResponse();
+				return $this->handleHTMLResponse();
 				break;
 			case 'application/json':
 				
@@ -31,26 +31,17 @@ class Front extends Endpoint {
 		// Do pre render hook
 		try {
 
+			$response = array(
+				
+			);
 			
+			return  "<html><h1>p00p</h1></html>";
 			
 		}	catch (Exception $e) {
 			print_r($e->getTraceAsString())	;
 		}	
 		
 		
-	}
-	
-	public function setDisplayEngine($displayEngine) {
-		$this->displayEngine = $displayEngine;
-	}
-	
-	public function getDisplayEngine() {
-		if(isset($this->displayEngine)){
-			return $this->displayEngine;
-		} else {
-			Throw new Exception('A theme engine is not defined for this application.');
-		}
-	
 	}
 	
 }	

@@ -11,7 +11,7 @@ include('lib/Session/User.php');
  * For example and Endpoint implemenetation may take care of providing a response object for XML, JSON, XHTML, PHP and what ever.
  * This way of handeling requests is based on the idea that each page on the site may function as a Service Endpoint.
  * 
- * This idea was adopted because there was an initial need to make site that was first developed with this system needed to provide 
+ * This idea was adopted because there was an initial need to make a site that was first developed with this system needed to provide 
  * JSON response and all pages needed to be able to repsonde in JSON or XHTML
  * 
  */
@@ -28,8 +28,6 @@ class RequestHandler {
 	private $acceptEncoding;
 	private $acceptLanguage;
 	private $acceptCharset;
-	
-	
 	
 	public function __construct () {
 		
@@ -76,12 +74,14 @@ class RequestHandler {
 	}
 	
 	protected function translateRequestPath () {
+		
 		if(isset($_GET['q'])) {
 			$this->path = explode("/",$_GET['q']);
 		}
 		if($this->path == ""){
-			$this->path = "/";
+			$this->path = array("/");
 		}
+		
 	}
 	
 	protected function determainIfFront() {

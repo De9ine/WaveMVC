@@ -3,7 +3,7 @@ include('Response/Endpoint.php');
 /**
  * 
  * Base class for Weblication development,
- * this class is designed to extended and not to be used as is.
+ * this class is designed to be extended and not to be used as is.
  * 
  * It provides methods to handle 
  * @author krol
@@ -34,21 +34,23 @@ class Weblication {
 	 */
 	
 	public function init() {
-		// Register all endpoints
+		// Get endpoint for requested path
 		$endpoint = &Kernel::getEndpoint($this->request->getPath());
 		
 		if($endpoint){
 			include('web/'.$endpoint['callback'].'.php');
 			$EndpointHandler = new $endpoint['callback']();
 		} else {
-			
 			include('web/Error.php');
-			$EndpointHandler =new Error();
+			$EndpointHandler = new Error();
 			
 		}
-		call_user_func_array(array($EndpointHandler, 'setArgs'), array("Herp", "Di", "Derp"));
 		
-		$this->response->setEndpointResponse($EndpointHandler);
+		if($EndpointHandler instanceof Endpoint) {
+			$this->response->setEndpointResponse($EndpointHandler);
+		} else {
+			throw new Exception("Endpoint ".$endpoint['callback']." is not implementing Endpoint interface.");
+		}
 	}
 	
 	public function run() {

@@ -1,10 +1,6 @@
 <?php 
-class Node {
+class Node implements Endpoint{
 	
 	
-	
-	public function preprocess_theme_vars ($vars) {
-		
-	}
 	
 }

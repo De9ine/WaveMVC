@@ -1,8 +1,8 @@
 <?php 
-
-include('lib/DisplayEngine/PHPTheme.php');
-
+include('lib/EngineFactory.php');
 class Main extends Weblication {
+	
+	private $themeEngine;
 
 	public function __construct (&$request) {
 		parent::__construct($request);
@@ -15,17 +15,17 @@ class Main extends Weblication {
 	
 	public function init () {
 		parent::init();
-		$this->displayEngine = new PHPTheme();
+		
+		/**
+		 * 
+		 */
+		
+		$this->themeEngine = EngineFactory::create("DisplayEngine", "PHPTheme");
+		
 	}
 	
 	public function run () {
-		
-		$this->displayEngine->pewp = "oooiih";
-		$this->displayEngine->header = "apa";
-		
-		$this->displayEngine->setTheme(Kernel::$manifest['theme']);
-		
-		print_r($this->displayEngine->display('themes/generic/Page.tpl.php'));
+		return $this->response->processResponse();
 		
 	}
 	

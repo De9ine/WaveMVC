@@ -1,4 +1,4 @@
 <?php 
-class Error extends Endpoint {
+class Error extends BasicEndpoint {
 	
 }
