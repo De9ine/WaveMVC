@@ -286,7 +286,11 @@ class Kernel {
 		}
 	}
 	
-	public static function processPluginManifest ($manifest) {
+	public static function processPluginManifest ($pluginManifest) {
+		$manifest 				= new DOMDocument;
+		$manifest->loadXML(file_get_contents($pluginManifest));
+		// set the manifestRoot node.
+		$manifestRoot			= $manifest->getElementsByTagName('plugin')->item(0);
 		
 	}
 	
