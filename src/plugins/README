@@ -1,0 +1,25 @@
+Wave pluginsystem v1.0
+
+Wave is a MVC built ground up to be extensible using the object orientation paradigm
+It adapts ideas from many of the major open source and closed source systems such as Drupal, EPiServer and other 
+smaller, och larger enterprise MVC frameworkds.
+
+The plugin system is designed in such a away that all plugins developed may extend on others to make it easier to
+alter the plugins without hacking into the code that already exists.
+
+The plugin system also implements a hook API framework with ideas taken and refined from Drupal.
+
+Each plugin must supply a manifest.xml file that defines all attributes for the plugin, including,
+name, external libraries, dependencies, system load order, hooks implemented, hooks exposed.
+
+The hook system is much like a event system, a plugins manifest file declares which hooks it's going to implement
+when a hook is fired from any part of the wave system all plugins implementing that hook is alerted and the 
+implemented hook callback is invoked with all the arguments.
+
+The idea of using manifest.xml's in each plugin comes from the need to bring down the overhead of always needing to
+look for a hook implementation in EVERY module, in this way we are able to create a index
+in the database with all the plugins and which hooks they are implementing.
+
+This index is rebuilt on "plugin page save" or "plugin cache flush".
+During development of a application it is therefor recommended to run WAVE in developer mode, 
+when running wave in developer mode it rebuilds the plugin hook index on each pageload.
